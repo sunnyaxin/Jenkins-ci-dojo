@@ -31,8 +31,6 @@ pipeline {
             steps {
                 sh 'printenv DISABLE_AUTH'
                 sh 'printenv DB_ENGINE'
-                sh 'printenv DISABLE_BUILD'
-                sh 'printenv DB_BUILD'
 
                 retry(3) {
                     sh './flakey-deploy.sh'
