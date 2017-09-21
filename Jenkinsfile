@@ -8,17 +8,32 @@ pipeline {
 
     stages {
         stage('Build') {
+
+            environment {
+                DISABLE_BUILD = 'true_build'
+                DB_BUILD    = 'sqlite_build'
+            }
+
             steps {
                 sh 'echo "Hello World"'
                 sh '''
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
+                sh 'printenv DISABLE_AUTH'
+                sh 'printenv DB_ENGINE'
+                sh 'printenv DISABLE_BUILD'
+                sh 'printenv DB_BUILD'
             }
         }
 
         stage('Deploy') {
             steps {
+                sh 'printenv DISABLE_AUTH'
+                sh 'printenv DB_ENGINE'
+                sh 'printenv DISABLE_BUILD'
+                sh 'printenv DB_BUILD'
+
                 retry(3) {
                     sh './flakey-deploy.sh'
                 }
