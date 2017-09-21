@@ -4,6 +4,9 @@ pipeline {
     environment {
         DISABLE_AUTH = 'true'
         DB_ENGINE    = 'sqlite'
+
+        AWS_ACCESS_KEY_ID     = credentials('DISABLE_AUTH')
+        AWS_SECRET_ACCESS_KEY = credentials('DB_ENGINE')
     }
 
     stages {
