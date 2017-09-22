@@ -56,8 +56,8 @@ pipeline {
         success {
             echo 'This will run only if successful'
             mail to: 'yxwang@thoughtworks.com',
-                                     subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
-                                     body: "Everything is right with ${env.DB_ENGINE}"
+                                     subject: "Success Pipeline",
+                                     body: "Everything is right with"
         }
         failure {
             echo 'This will run only if failed'
