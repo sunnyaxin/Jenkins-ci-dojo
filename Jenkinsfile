@@ -18,15 +18,13 @@ pipeline {
             }
 
             steps {
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
-                sh 'printenv DISABLE_AUTH'
-                sh 'printenv DB_ENGINE'
-                sh 'printenv DISABLE_BUILD'
-                sh 'printenv DB_BUILD'
+                sh './gradlew build'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh './gradlew check'
             }
         }
 
@@ -52,6 +50,8 @@ pipeline {
     post {
         always {
             echo 'This will always run'
+            archive 'build/libs/**/*.jar'
+            junit 'build/reports/**/*.xml'
         }
         success {
             echo 'This will run only if successful'
