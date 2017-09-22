@@ -51,6 +51,7 @@ pipeline {
         always {
             echo 'This will always run'
             archive 'build/libs/**/*.jar'
+            deleteDir()
         }
         success {
             echo 'This will run only if successful'
