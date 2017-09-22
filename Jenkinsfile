@@ -6,6 +6,7 @@ pipeline {
         DB_ENGINE    = 'sqlite'
 
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        SECRET_TEXT_ID = credentials('SECRET_TEXT_ID');
     }
 
     stages {
@@ -41,6 +42,9 @@ pipeline {
                 timeout(time: 3, unit: 'MINUTES') {
                     sh 'echo "Yeah~~~"'
                 }
+
+                sh 'printenv AWS_ACCESS_KEY_ID'
+                sh 'printenv SECRET_TEXT_ID'
             }
         }
     }
