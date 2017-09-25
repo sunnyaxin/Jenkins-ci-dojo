@@ -1,5 +1,5 @@
 
-node('android-node') {
+node('aaaa') {
 
     stage('Checkout'){
         checkout scm
