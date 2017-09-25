@@ -25,7 +25,7 @@ node('android-node') {
     }
 }
 
-node('master') {
+node {
 
     stage('Checkout'){
         checkout scm
