@@ -2,8 +2,6 @@ node {
 
     checkout scm
 
-    agent any
-
     environment {
         DISABLE_AUTH = 'true'
         DB_ENGINE    = 'sqlite'
