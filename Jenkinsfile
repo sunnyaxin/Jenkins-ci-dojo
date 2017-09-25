@@ -2,14 +2,6 @@ node {
 
     checkout scm
 
-    environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
-
-        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
-        SECRET_TEXT_ID = credentials('SECRET_TEXT_ID');
-    }
-
     stages {
         stage('Build') {
 
