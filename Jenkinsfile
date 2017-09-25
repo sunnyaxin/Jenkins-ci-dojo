@@ -22,12 +22,6 @@ pipeline {
             }
         }
 
-        stage('Sanity check') {
-            steps {
-                input "Does the staging environment look ok?"
-            }
-        }
-
         stage('Test') {
             steps {
                 sh './gradlew check'
