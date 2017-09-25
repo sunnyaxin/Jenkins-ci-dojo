@@ -1,8 +1,9 @@
 node {
 
-    checkout scm
+    stage('Checkout'){
+        checkout scm
+    }
 
-    stages {
         stage('Build') {
 
             environment {
@@ -38,5 +39,5 @@ node {
                 sh 'printenv SECRET_TEXT_ID'
             }
         }
-    }
+
 }
