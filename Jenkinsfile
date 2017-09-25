@@ -5,27 +5,21 @@ node {
     }
 
     stage('Build') {
-        steps {
-            sh './gradlew build'
-        }
+        sh './gradlew build'
     }
 
     stage('Test') {
-        steps {
-            sh './gradlew check'
-        }
+        sh './gradlew check'
     }
 
     stage('Deploy') {
-        steps {
 
-            retry(3) {
-                sh './flakey-deploy.sh'
-            }
+        retry(3) {
+            sh './flakey-deploy.sh'
+        }
 
-            timeout(time: 3, unit: 'MINUTES') {
-                sh 'echo "Yeah~~~"'
-            }
+        timeout(time: 3, unit: 'MINUTES') {
+            sh 'echo "Yeah~~~"'
         }
     }
 }
