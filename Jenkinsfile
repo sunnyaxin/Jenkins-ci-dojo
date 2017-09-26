@@ -27,11 +27,7 @@ node('android-node') {
 
 node('master') {
 
-    stage('Checkout'){
-        checkout scm
-    }
-
-    stage('Build') {
+    stage('nodeTest') {
         sh 'echo "master~~~~~~~~"'
     }
 }
