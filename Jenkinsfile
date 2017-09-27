@@ -27,8 +27,8 @@ node('master') {
     stage('nodeTest') {
         sh 'echo "master~~~~~~~~"'
     }
+}
 
-    post{
-        sh 'echo "post section~~~~"'
-    }
+post{
+    sh 'echo "post section~~~~"'
 }
