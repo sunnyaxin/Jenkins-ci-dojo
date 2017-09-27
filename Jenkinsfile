@@ -1,6 +1,5 @@
 
 node('android-node') {
-
     stage('Checkout'){
         checkout scm
     }
@@ -14,7 +13,6 @@ node('android-node') {
     }
 
     stage('Deploy') {
-
         retry(3) {
             sh './flakey-deploy.sh'
         }
@@ -26,8 +24,11 @@ node('android-node') {
 }
 
 node('master') {
-
     stage('nodeTest') {
         sh 'echo "master~~~~~~~~"'
+    }
+
+    post{
+        sh 'echo "post section~~~~"'
     }
 }
